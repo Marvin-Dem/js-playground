@@ -21,4 +21,4 @@ while (wochentag <= 7 ) {
         console.log ("Falscher Wert")
     }
     wochentag++;
-}
+} 
