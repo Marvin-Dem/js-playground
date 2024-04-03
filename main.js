@@ -1,24 +1,25 @@
-let wochentag = 9;
+let wochentag = 6;
 
 function firsttry(weekdayIndex) {
-
+    let weekdayName;
     if (weekdayIndex === 1) {
-        return `Der ${weekdayIndex}. Tag ist der Montag`;
+        weekdayName = "Montag";
     } else if (weekdayIndex === 2) {
-        return `Der ${weekdayIndex}. Tag ist der Dienstag`;
+        weekdayName = "Dienstag";
     } else if (weekdayIndex === 3) {
-        return `Der ${weekdayIndex}. Tag ist der Mittwoch`;
+        weekdayName = "Mittwoch";
     } else if (weekdayIndex === 4) {
-        return `Der ${weekdayIndex}. Tag ist der Donnerstag`;
+        weekdayName = "Donnerstag";
     } else if (weekdayIndex === 5) {
-        return `Der ${weekdayIndex}. Tag ist der Freitag`;
+        weekdayName = "Freitag";
     } else if (weekdayIndex === 6) {
-        return `Der ${weekdayIndex}. Tag ist der Samstag`;
+        weekdayName = "Samstag";
     } else if (weekdayIndex === 7) {
-        return `Der ${weekdayIndex}. Tag ist der Sonntag`;
+        weekdayName = "Sonntag";
     } else {
         return "Falscher Wert"
-    }
+    } 
+    return `Der ${weekdayIndex}. Tag ist der ${weekdayName}`;
 }
 let result = firsttry(wochentag)
 console.log(result);
