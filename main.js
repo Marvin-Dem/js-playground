@@ -1,5 +1,3 @@
-let wochentag = 3;
-
 function firsttry(weekdayIndex) {
     let weekdayName;
     if (weekdayIndex === 1) {
@@ -22,8 +20,10 @@ function firsttry(weekdayIndex) {
     return `Der ${weekdayIndex}. Tag ist der ${weekdayName}`;
 }
 try {
-    let result = firsttry(wochentag)
-    console.log(result);
+    for (let wochentag = 1 ; wochentag <=7 ; wochentag++) {
+        let result = firsttry(wochentag)
+        console.log(result)
+    }
 } catch (error) {
     console.error(error);
 }
