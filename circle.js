@@ -1,8 +1,8 @@
-let radius = 8;
+const radius = 8;
+const pi = 3.14;
 function circle(radius) {
-    let pi = 3.14;
-    let circumference = (pi*2)*radius;
+    const circumference = (pi*2)*radius;
     return `Ein Kreis mit einem Radius von ${radius} hat einen Umfang von ${circumference}.`;
 }
-let result = circle(radius);
+const result = circle(radius);
 console.log (result);

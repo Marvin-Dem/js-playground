@@ -15,14 +15,14 @@ function firsttry(weekdayIndex) {
     } else if (weekdayIndex === 7) {
         weekdayName = "Sonntag";
     } else {
-        throw "Falscher Wert"
+        throw "Falscher Wert";
     } 
     return `Der ${weekdayIndex}. Tag ist der ${weekdayName}`;
 }
 try {
     for (let wochentag = 1 ; wochentag <=7 ; wochentag++) {
-        let result = firsttry(wochentag)
-        console.log(result)
+        const result = firsttry(wochentag);
+        console.log(result);
     }
 } catch (error) {
     console.error(error);
