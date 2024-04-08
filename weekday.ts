@@ -1,5 +1,5 @@
-export function weekday(weekdayIndex) {
-    let weekdayName;
+export function weekday(weekdayIndex: number) {
+    let weekdayName: string;
     if (weekdayIndex === 1) {
         weekdayName = "Montag";
     } else if (weekdayIndex === 2) {
@@ -20,7 +20,7 @@ export function weekday(weekdayIndex) {
     return `Der ${weekdayIndex}. Tag ist der ${weekdayName}`;
 }
 // try {
-//     for (let wochentag = 1 ; wochentag <=7 ; wochentag++) {
+//     for (let wochentag: number = 1 ; wochentag <=7 ; wochentag++) {
 //         const result = weekday(wochentag);
 //         console.log(result);
 //     }
