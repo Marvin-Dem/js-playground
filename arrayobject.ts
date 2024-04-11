@@ -12,5 +12,6 @@ export function arrayobject (arr: Person[]) {
             oldestPerson = person;
         }
     }
+    
     return oldestPerson;
 }
