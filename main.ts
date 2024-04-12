@@ -37,5 +37,21 @@
 // }
 
 import {calcSum} from "./cartentry";
-import {cartEntryList} from "./cartentry";
+import {CartEntry} from "./cartentry";
+
+const cartEntryList: CartEntry[] = [{
+    itemName: "Pokemon Karten 1. Edition",
+    amount: 5,
+    price: 4.99,
+},
+{
+    itemName: "Relaxo Puppe Modell Goschs Mum",
+    amount: 2,
+    price: 149.99
+},
+{
+    itemName: "Pikachu Overall",
+    amount: 3,
+    price: 24.99,
+}]
 console.log(`Der Gesamtpreis inkl. Mehrwertsteuer beträgt ${calcSum(cartEntryList)}.`);
