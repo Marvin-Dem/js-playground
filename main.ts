@@ -19,19 +19,23 @@
 // console.log (arrayobject(arr));
 
 
-import {LogIn} from "./userlogin";
-import {LoginData} from"./userlogin";
-let logindata: LoginData = {
-    username: "",
-    password: "",
-}
-const logintry = LogIn({
-    username: "Gosch42",
-    password: "froxxundacidsinddiegeilsten",
-});
-if (logintry === true) {
-    console.log ("Login successful!");
-}
-else {
-   console.log ("Login failed!");
-}
+// import {LogIn} from "./userlogin";
+// import {LoginData} from"./userlogin";
+// let logindata: LoginData = {
+//     username: "",
+//     password: "",
+// }
+// const logintry = LogIn({
+//     username: "Gosch42",
+//     password: "froxxundacidsinddiegeilsten",
+// });
+// if (logintry === true) {
+//     console.log ("Login successful!");
+// }
+// else {
+//    console.log ("Login failed!");
+// }
+
+import {calcSum} from "./cartentry";
+import {cartEntryList} from "./cartentry";
+console.log(`Der Gesamtpreis inkl. Mehrwertsteuer beträgt ${calcSum(cartEntryList)}.`);
