@@ -18,7 +18,6 @@
 // }];
 // console.log (arrayobject(arr));
 
-
 // import {LogIn} from "./userlogin";
 // import {LoginData} from"./userlogin";
 // let logindata: LoginData = {
@@ -56,8 +55,12 @@
 // }]
 //console.log(`Der Gesamtpreis inkl. Mehrwertsteuer beträgt ${calcSum(cartEntryList)}.`);
 
-import {Pokemon} from "./poketypefilter";
-import {type} from "./poketypefilter";
-import {getPokemonByType} from "./poketypefilter";
+// import {Pokemon} from "./poketypefilter";
+// import {type} from "./poketypefilter";
+// import {getPokemonByType} from "./poketypefilter";
 
-console.log (getPokemonByType("fire"));
+// console.log (getPokemonByType("fire"));
+
+import { rectangleArea } from "./algebra";
+import { rectangleDiagonal } from "./algebra";
+import { cuboidDiagonal } from "./algebra";
