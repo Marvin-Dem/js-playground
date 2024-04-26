@@ -1,0 +1,70 @@
+.badge {
+    background-color: rgb(208, 208, 208);
+    color: slategrey;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.button {
+    background-color: rgb(66, 46, 193);
+    color: white;
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: rgb(104, 86, 220);
+}
+
+.background {
+    background-color: rgb(239, 239, 239);
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 350px;
+}
+
+.notification {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.note1 {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.note2 {
+    color: rgb(160, 159, 159);
+    font-size: 15px;
+}
+
+.noteX {
+    all: unset;
+    color: rgb(160, 159, 159);
+    background-color: white;
+    font-size: 15px;
+    display: flex;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.noteX:hover {
+    color: rgb(205, 205, 205);
+}
+
+.header {
+    display: flex;
+    margin-bottom: 8px;
+    justify-content: space-between;
+}
