@@ -11,6 +11,7 @@
     color: white;
     font-size: 30px;
     padding: 15px;
+    border: none;
     border-radius: 15px;
     transition-duration: 0.4s;
     cursor: pointer;
@@ -53,9 +54,7 @@
 .noteX {
     all: unset;
     color: rgb(160, 159, 159);
-    background-color: white;
     font-size: 15px;
-    display: flex;
     transition-duration: 0.4s;
     cursor: pointer;
 }
