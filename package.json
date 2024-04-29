@@ -9,9 +9,13 @@
   "author": "Marvin",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.19.2",
     "moment": "^2.30.1"
   },
   "devDependencies": {
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.9.3",
+    "nodemon": "^3.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.4"
   }
