@@ -4,6 +4,6 @@ type Person = {
 };
 const person: Person = {
     givenName: "Penis",
-    lastName: "Mumdiesisteinganzharterpenis1234567",
+    lastName: "haaaaalaloooallalo1234",
 };
 console.log(person);

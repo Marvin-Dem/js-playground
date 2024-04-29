@@ -4,8 +4,9 @@
   "description": "This is my first try",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "ts": "tsc -w",
+    "dev": "nodemon server.js"
+},
   "author": "Marvin",
   "license": "ISC",
   "dependencies": {

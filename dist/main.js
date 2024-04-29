@@ -1,6 +1,6 @@
 "use strict";
 const person = {
     givenName: "Penis",
-    lastName: "Mumdiesisteinganzharterpenis1234567",
+    lastName: "haaaaalaloooallalo1234",
 };
 console.log(person);
