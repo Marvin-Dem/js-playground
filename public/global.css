@@ -20,7 +20,7 @@
     font-family: Verdana;
     font-weight: bold;
 }
-.linkandemail {
+.link-and-email {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,7 +36,7 @@
     border-radius: 150px;
 }
 /* 
-.educationHeader {
+.education-header {
     display: flex;
     justify-content: space-between;
     border-top-style: solid;

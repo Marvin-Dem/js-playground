@@ -3,6 +3,14 @@ const element = document.getElementById("header")!;
 function Wrapper() {
     const wrapper = document.createElement("div");
     wrapper.classList.add("wrapper");
+    const image = Img();
+    wrapper.appendChild(image);
+    const namestyle = Name();
+    wrapper.appendChild(namestyle);
+    const link = LinkWrapper();
+    wrapper.appendChild(link);
+    const email = Email();
+    wrapper.appendChild(email);
     return wrapper;
 }
 const wrapper = Wrapper();
@@ -15,8 +23,6 @@ function Img() {
     image.classList.add("image");
     return image;
 }
-const image = Img();
-wrapper.appendChild(image);
 
 function Name() {
     const namestyle = document.createElement("div");
@@ -24,26 +30,21 @@ function Name() {
     namestyle.classList.add("namestyle");
     return namestyle;
 }
-const namestyle = Name();
-wrapper.appendChild(namestyle);
 
-function Link() {
-    const link = document.createElement("div");
+function LinkWrapper() {
+    const link = document.createElement("a");
     link.innerText = "https://p6.gg/";
-    link.classList.add("linkandemail");
+    link.href = "https://p6.gg/";
+    link.classList.add("link-and-email");
     return link;
 }
-const link = Link();
-wrapper.appendChild(link);
 
 function Email() {
     const email = document.createElement("div");
     email.innerText = "m.demirkaya@progani.com";
-    email.classList.add("linkandemail");
+    email.classList.add("link-and-email");
     return email;
 }
-const email = Email();
-wrapper.appendChild(email);
 
 // function EducationHeader(){
 
