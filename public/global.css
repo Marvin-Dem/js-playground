@@ -35,7 +35,7 @@
     height: 128px;
     border-radius: 150px;
 }
-/* 
+
 .education-header {
     display: flex;
     justify-content: space-between;
@@ -43,13 +43,13 @@
     border-bottom-style: solid;
     padding: 5px;
 }
-.education {
+.experience {
     font-size: 30px;
     color: rgb(108, 106, 106);
     text-transform: uppercase;
 }
 
-.graduation {
+.jobtitle {
     font-size: 30px;
     font-weight: bold;
 }
@@ -57,4 +57,22 @@
 .year {
     font-size: 30px;
     color: rgb(108, 106, 106);
-} */
+}
+
+.text {
+    padding: 15px;
+    font-size: 25px;
+}
+
+.bottom-text {
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    padding: 5px;
+}
