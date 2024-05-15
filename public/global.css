@@ -60,7 +60,6 @@
 }
 
 .text {
-    padding: 15px;
     font-size: 25px;
 }
 
@@ -69,10 +68,11 @@
     margin-bottom: 50px;
 }
 
-.container {
+.container-content {
+    padding: 15px;
+}
+
+.container-wrapper {
     display: flex;
-    justify-content: space-between;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    padding: 5px;
+    flex-direction: column;
 }

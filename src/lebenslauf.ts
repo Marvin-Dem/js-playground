@@ -47,34 +47,43 @@ function Email() {
 }
 
 function CvContainer() {
-    const container = document.createElement("div");
-    container.classList.add("container");
+    const containerWrapper = document.createElement("div");
+    containerWrapper.classList.add("container-wrapper");
+    const containerHeader = document.createElement("div");
+    containerHeader.classList.add("education-header");
+    const containerContent = document.createElement("div");
+    containerContent.classList.add("container-content");
     const experience = document.createElement("div");
     experience.innerText = "Ausbildung";
     experience.classList.add("experience");
-    container.appendChild(experience);
+    containerHeader.appendChild(experience);
     const jobtitle = document.createElement("div");
     jobtitle.innerText = "Abschluss der allgemeinen Hochschulreife";
     jobtitle.classList.add("jobtitle");
-    container.appendChild(jobtitle);
+    containerHeader.appendChild(jobtitle);
     const year = document.createElement("div");
     year.innerText = "2014";
     year.classList.add("year");
-    container.appendChild(year);
-    const text1 = document.createElement("div");
+    containerHeader.appendChild(year);
+    const text1 = document.createElement("p");
     text1.innerText = "Kernfächer im Abitur: Englisch und Geschichte";
     text1.classList.add("text");
-    container.appendChild(text1);
-    // const text2 = document.createElement("div");
+    containerContent.appendChild(text1);
+    // const text2 = document.createElement("p");
     // text2.innerText ="";
     // text2.classList.add("text");
-    // container.appendChild(text2);
-    const text3 = document.createElement("div");
+    // containerContent.appendChild(text2);
+    const text3 = document.createElement("p");
     text3.innerText =
         "Weitere Fächer in der Abiturprüfung: Deutsch und Mathematik (4.Fach)";
     text3.classList.add("bottom-text");
-    container.appendChild(text3);
-    return container;
+    containerContent.appendChild(text3);
+
+    containerWrapper.appendChild(containerHeader);
+    containerWrapper.appendChild(containerContent);
+
+    return containerWrapper;
 }
+
 const container = CvContainer();
 element.appendChild(container);
