@@ -46,7 +46,14 @@ function Email() {
     return email;
 }
 
-function CvContainer() {
+function CvContainer(
+    experienceContent: string,
+    jobtitleContent: string,
+    yearContent: string,
+    text1Content: string,
+    text2Content: string,
+    text3Content: string
+) {
     const containerWrapper = document.createElement("div");
     containerWrapper.classList.add("container-wrapper");
     const containerHeader = document.createElement("div");
@@ -54,28 +61,27 @@ function CvContainer() {
     const containerContent = document.createElement("div");
     containerContent.classList.add("container-content");
     const experience = document.createElement("div");
-    experience.innerText = "Ausbildung";
+    experience.innerText = experienceContent;
     experience.classList.add("experience");
     containerHeader.appendChild(experience);
     const jobtitle = document.createElement("div");
-    jobtitle.innerText = "Abschluss der allgemeinen Hochschulreife";
+    jobtitle.innerText = jobtitleContent;
     jobtitle.classList.add("jobtitle");
     containerHeader.appendChild(jobtitle);
     const year = document.createElement("div");
-    year.innerText = "2014";
+    year.innerText = yearContent;
     year.classList.add("year");
     containerHeader.appendChild(year);
     const text1 = document.createElement("p");
-    text1.innerText = "Kernfächer im Abitur: Englisch und Geschichte";
+    text1.innerText = text1Content;
     text1.classList.add("text");
     containerContent.appendChild(text1);
-    // const text2 = document.createElement("p");
-    // text2.innerText ="";
-    // text2.classList.add("text");
-    // containerContent.appendChild(text2);
+    const text2 = document.createElement("p");
+    text2.innerText = text2Content;
+    text2.classList.add("text");
+    containerContent.appendChild(text2);
     const text3 = document.createElement("p");
-    text3.innerText =
-        "Weitere Fächer in der Abiturprüfung: Deutsch und Mathematik (4.Fach)";
+    text3.innerText = text3Content;
     text3.classList.add("bottom-text");
     containerContent.appendChild(text3);
 
@@ -85,5 +91,72 @@ function CvContainer() {
     return containerWrapper;
 }
 
-const container = CvContainer();
-element.appendChild(container);
+const container1 = CvContainer(
+    "Ausbildung",
+    "Abschluss der allgemeinen Hochschulreife",
+    "2014",
+    "Kernfächer im Abitur: Englisch und Geschichte",
+    "",
+    "Weitere Fächer in der Abiturprüfung: Deutsch und Mathematik(4.Fach)"
+);
+element.appendChild(container1);
+
+const container2 = CvContainer(
+    "Bisherige Berufserfahrung",
+    "Pinos Eiscafe&Ristorante",
+    "2014-2015",
+    "Erste Erfahrungen im Gastronomiebereich",
+    "Arbeit hinter der Theke und direkte Bedienung der Kundschaft",
+    "Erlernung der Kommunikation im direkten Kundenkontakt"
+);
+element.appendChild(container2);
+
+const container3 = CvContainer(
+    "Weitere Berufserfahrung",
+    "Arbeit als Inklusionshelfer",
+    "2015-2024",
+    "Begleitung von Kindern von 4-12 Jahren in ihrem Schul- und Kitaalltag",
+    "Aneignung breitgefächerten Fachwissens & Erfahrung im pädagogischen Bereich",
+    "Spezialisierung auf Begleitung von Kindern mit Autismus, ADHS und ES"
+);
+element.appendChild(container3);
+
+const container4 = CvContainer(
+    "Weitere Berufserfahrung",
+    "Junior Software Developer bei Progani GmbH",
+    "04.2024-heute",
+    "Erlernung neuer Programmiersprachen und -techniken, zB. HTML und Typescript",
+    "Durchführung individuell erstellter Aufgaben durch den Vorgesetzten als Lernprozess",
+    "Verköstigung eines kulinarisch erquickenden Mettbrötchens an einem jeden Mettwoch"
+);
+element.appendChild(container4);
+
+function BottomContainer() {
+    const bottomContainer = document.createElement("div");
+    const skills = document.createElement("div");
+    skills.innerText = "Persönliche Skills";
+    skills.classList.add("skills");
+    bottomContainer.appendChild(skills);
+    const list = document.createElement("ul");
+    list.classList.add("list");
+    const list1 = document.createElement("li");
+    list1.innerText = "Empathie";
+    list1.classList.add("list");
+    list.appendChild(list1);
+    const list2 = document.createElement("li");
+    list2.innerText = "Teamfähigkeit";
+    list2.classList.add("list");
+    list.appendChild(list2);
+    const list3 = document.createElement("li");
+    list3.innerText = "Geduld";
+    list3.classList.add("list");
+    list.appendChild(list3);
+    const list4 = document.createElement("li");
+    list4.innerText = "Kommunikation";
+    list4.classList.add("list");
+    list.appendChild(list4);
+    bottomContainer.appendChild(list);
+    return bottomContainer;
+}
+const bottomContainer = BottomContainer();
+element.appendChild(bottomContainer);
