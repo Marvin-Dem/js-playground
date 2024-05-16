@@ -93,52 +93,6 @@ function CvContainer(props: Props) {
     return containerWrapper;
 }
 
-const objectContainer1: Props = {
-    experience: "Ausbildung",
-    jobtitle: "Abschluss der allgemeinen Hochschulreife",
-    year: "2014",
-    text1: "Kernfächer im Abitur: Englisch und Geschichte",
-    text2: "",
-    text3: "Weitere Fächer in der Abiturprüfung: Deutsch und Mathematik(4.Fach)",
-};
-const container1 = CvContainer(objectContainer1);
-element.appendChild(container1);
-
-const objectContainer2: Props = {
-    experience: "Bisherige Berufserfahrung",
-    jobtitle: "Pinos Eiscafe&Ristorante",
-    year: "2014-2015",
-    text1: "Erste Erfahrungen im Gastronomiebereich",
-    text2: "Arbeit hinter der Theke und direkte Bedienung der Kundschaft",
-    text3: "Erlernung der Kommunikation im direkten Kundenkontakt",
-};
-const container2 = CvContainer(objectContainer2);
-element.appendChild(container2);
-
-const objectContainer3: Props = {
-    experience: "Weitere Berufserfahrung",
-    jobtitle: "Arbeit als Inklusionshelfer",
-    year: "2015-2024",
-    text1: "Begleitung von Kindern von 4-12 Jahren in ihrem Schul- und Kitaalltag",
-    text2: "Aneignung breitgefächerten Fachwissens & Erfahrung im pädagogischen Bereich",
-    text3: "Spezialisierung auf Begleitung von Kindern mit Autismus, ADHS und ES",
-};
-
-const container3 = CvContainer(objectContainer3);
-element.appendChild(container3);
-
-const objectContainer4: Props = {
-    experience: "Weitere Berufserfahrung",
-    jobtitle: "Junior Software Developer bei Progani GmbH",
-    year: "04.2024-heute",
-    text1: "Erlernung neuer Programmiersprachen und -techniken, zB. HTML und Typescript",
-    text2: "Durchführung individuell erstellter Aufgaben durch den Vorgesetzten als Lernprozess",
-    text3: "Verköstigung eines kulinarisch erquickenden Mettbrötchens an einem jeden Mettwoch",
-};
-
-const container4 = CvContainer(objectContainer4);
-element.appendChild(container4);
-
 function BottomContainer() {
     const bottomContainer = document.createElement("div");
     const skills = document.createElement("div");
@@ -165,6 +119,46 @@ function BottomContainer() {
     list.appendChild(list4);
     bottomContainer.appendChild(list);
     return bottomContainer;
+}
+
+const data: Props[] = [
+    {
+        experience: "Ausbildung",
+        jobtitle: "Abschluss der allgemeinen Hochschulreife",
+        year: "2014",
+        text1: "Kernfächer im Abitur: Englisch und Geschichte",
+        text2: "",
+        text3: "Weitere Fächer in der Abiturprüfung: Deutsch und Mathematik(4.Fach)",
+    },
+    {
+        experience: "Bisherige Berufserfahrung",
+        jobtitle: "Pinos Eiscafe&Ristorante",
+        year: "2014-2015",
+        text1: "Erste Erfahrungen im Gastronomiebereich",
+        text2: "Arbeit hinter der Theke und direkte Bedienung der Kundschaft",
+        text3: "Erlernung der Kommunikation im direkten Kundenkontakt",
+    },
+    {
+        experience: "Weitere Berufserfahrung",
+        jobtitle: "Arbeit als Inklusionshelfer",
+        year: "2015-2024",
+        text1: "Begleitung von Kindern von 4-12 Jahren in ihrem Schul- und Kitaalltag",
+        text2: "Aneignung breitgefächerten Fachwissens & Erfahrung im pädagogischen Bereich",
+        text3: "Spezialisierung auf Begleitung von Kindern mit Autismus, ADHS und ES",
+    },
+    {
+        experience: "Weitere Berufserfahrung",
+        jobtitle: "Junior Software Developer bei Progani GmbH",
+        year: "04.2024-heute",
+        text1: "Erlernung neuer Programmiersprachen und -techniken, zB. HTML und Typescript",
+        text2: "Durchführung individuell erstellter Aufgaben durch den Vorgesetzten als Lernprozess",
+        text3: "Verköstigung eines kulinarisch erquickenden Mettbrötchens an einem jeden Mettwoch",
+    },
+];
+
+for (let container of data) {
+    const completeContainer = CvContainer(container);
+    element.appendChild(completeContainer);
 }
 
 const bottomContainer = BottomContainer();
