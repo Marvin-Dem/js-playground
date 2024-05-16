@@ -46,14 +46,16 @@ function Email() {
     return email;
 }
 
-function CvContainer(
-    experienceContent: string,
-    jobtitleContent: string,
-    yearContent: string,
-    text1Content: string,
-    text2Content: string,
-    text3Content: string
-) {
+type Props = {
+    experience: string;
+    jobtitle: string;
+    year: string;
+    text1: string;
+    text2: string;
+    text3: string;
+};
+
+function CvContainer(props: Props) {
     const containerWrapper = document.createElement("div");
     containerWrapper.classList.add("container-wrapper");
     const containerHeader = document.createElement("div");
@@ -61,27 +63,27 @@ function CvContainer(
     const containerContent = document.createElement("div");
     containerContent.classList.add("container-content");
     const experience = document.createElement("div");
-    experience.innerText = experienceContent;
+    experience.innerText = props.experience;
     experience.classList.add("experience");
     containerHeader.appendChild(experience);
     const jobtitle = document.createElement("div");
-    jobtitle.innerText = jobtitleContent;
+    jobtitle.innerText = props.jobtitle;
     jobtitle.classList.add("jobtitle");
     containerHeader.appendChild(jobtitle);
     const year = document.createElement("div");
-    year.innerText = yearContent;
+    year.innerText = props.year;
     year.classList.add("year");
     containerHeader.appendChild(year);
     const text1 = document.createElement("p");
-    text1.innerText = text1Content;
+    text1.innerText = props.text1;
     text1.classList.add("text");
     containerContent.appendChild(text1);
     const text2 = document.createElement("p");
-    text2.innerText = text2Content;
+    text2.innerText = props.text2;
     text2.classList.add("text");
     containerContent.appendChild(text2);
     const text3 = document.createElement("p");
-    text3.innerText = text3Content;
+    text3.innerText = props.text3;
     text3.classList.add("bottom-text");
     containerContent.appendChild(text3);
 
@@ -91,44 +93,50 @@ function CvContainer(
     return containerWrapper;
 }
 
-const container1 = CvContainer(
-    "Ausbildung",
-    "Abschluss der allgemeinen Hochschulreife",
-    "2014",
-    "Kernfächer im Abitur: Englisch und Geschichte",
-    "",
-    "Weitere Fächer in der Abiturprüfung: Deutsch und Mathematik(4.Fach)"
-);
+const objectContainer1: Props = {
+    experience: "Ausbildung",
+    jobtitle: "Abschluss der allgemeinen Hochschulreife",
+    year: "2014",
+    text1: "Kernfächer im Abitur: Englisch und Geschichte",
+    text2: "",
+    text3: "Weitere Fächer in der Abiturprüfung: Deutsch und Mathematik(4.Fach)",
+};
+const container1 = CvContainer(objectContainer1);
 element.appendChild(container1);
 
-const container2 = CvContainer(
-    "Bisherige Berufserfahrung",
-    "Pinos Eiscafe&Ristorante",
-    "2014-2015",
-    "Erste Erfahrungen im Gastronomiebereich",
-    "Arbeit hinter der Theke und direkte Bedienung der Kundschaft",
-    "Erlernung der Kommunikation im direkten Kundenkontakt"
-);
+const objectContainer2: Props = {
+    experience: "Bisherige Berufserfahrung",
+    jobtitle: "Pinos Eiscafe&Ristorante",
+    year: "2014-2015",
+    text1: "Erste Erfahrungen im Gastronomiebereich",
+    text2: "Arbeit hinter der Theke und direkte Bedienung der Kundschaft",
+    text3: "Erlernung der Kommunikation im direkten Kundenkontakt",
+};
+const container2 = CvContainer(objectContainer2);
 element.appendChild(container2);
 
-const container3 = CvContainer(
-    "Weitere Berufserfahrung",
-    "Arbeit als Inklusionshelfer",
-    "2015-2024",
-    "Begleitung von Kindern von 4-12 Jahren in ihrem Schul- und Kitaalltag",
-    "Aneignung breitgefächerten Fachwissens & Erfahrung im pädagogischen Bereich",
-    "Spezialisierung auf Begleitung von Kindern mit Autismus, ADHS und ES"
-);
+const objectContainer3: Props = {
+    experience: "Weitere Berufserfahrung",
+    jobtitle: "Arbeit als Inklusionshelfer",
+    year: "2015-2024",
+    text1: "Begleitung von Kindern von 4-12 Jahren in ihrem Schul- und Kitaalltag",
+    text2: "Aneignung breitgefächerten Fachwissens & Erfahrung im pädagogischen Bereich",
+    text3: "Spezialisierung auf Begleitung von Kindern mit Autismus, ADHS und ES",
+};
+
+const container3 = CvContainer(objectContainer3);
 element.appendChild(container3);
 
-const container4 = CvContainer(
-    "Weitere Berufserfahrung",
-    "Junior Software Developer bei Progani GmbH",
-    "04.2024-heute",
-    "Erlernung neuer Programmiersprachen und -techniken, zB. HTML und Typescript",
-    "Durchführung individuell erstellter Aufgaben durch den Vorgesetzten als Lernprozess",
-    "Verköstigung eines kulinarisch erquickenden Mettbrötchens an einem jeden Mettwoch"
-);
+const objectContainer4: Props = {
+    experience: "Weitere Berufserfahrung",
+    jobtitle: "Junior Software Developer bei Progani GmbH",
+    year: "04.2024-heute",
+    text1: "Erlernung neuer Programmiersprachen und -techniken, zB. HTML und Typescript",
+    text2: "Durchführung individuell erstellter Aufgaben durch den Vorgesetzten als Lernprozess",
+    text3: "Verköstigung eines kulinarisch erquickenden Mettbrötchens an einem jeden Mettwoch",
+};
+
+const container4 = CvContainer(objectContainer4);
 element.appendChild(container4);
 
 function BottomContainer() {
@@ -158,5 +166,6 @@ function BottomContainer() {
     bottomContainer.appendChild(list);
     return bottomContainer;
 }
+
 const bottomContainer = BottomContainer();
 element.appendChild(bottomContainer);
