@@ -50,43 +50,40 @@ type Props = {
     experience: string;
     jobtitle: string;
     year: string;
-    text1: string;
-    text2: string;
-    text3: string;
+    text: string[];
 };
 
 function CvContainer(props: Props) {
     const containerWrapper = document.createElement("div");
     containerWrapper.classList.add("container-wrapper");
+
     const containerHeader = document.createElement("div");
     containerHeader.classList.add("education-header");
+
     const containerContent = document.createElement("div");
     containerContent.classList.add("container-content");
+
     const experience = document.createElement("div");
     experience.innerText = props.experience;
     experience.classList.add("experience");
     containerHeader.appendChild(experience);
+
     const jobtitle = document.createElement("div");
     jobtitle.innerText = props.jobtitle;
     jobtitle.classList.add("jobtitle");
     containerHeader.appendChild(jobtitle);
+
     const year = document.createElement("div");
     year.innerText = props.year;
     year.classList.add("year");
     containerHeader.appendChild(year);
-    const text1 = document.createElement("p");
-    text1.innerText = props.text1;
-    text1.classList.add("text");
-    containerContent.appendChild(text1);
-    const text2 = document.createElement("p");
-    text2.innerText = props.text2;
-    text2.classList.add("text");
-    containerContent.appendChild(text2);
-    const text3 = document.createElement("p");
-    text3.innerText = props.text3;
-    text3.classList.add("bottom-text");
-    containerContent.appendChild(text3);
 
+    for (let text of props.text) {
+        const textElement = document.createElement("p");
+        textElement.innerText = text;
+        textElement.classList.add("text");
+        containerContent.appendChild(textElement);
+    }
     containerWrapper.appendChild(containerHeader);
     containerWrapper.appendChild(containerContent);
 
@@ -95,29 +92,24 @@ function CvContainer(props: Props) {
 
 function BottomContainer() {
     const bottomContainer = document.createElement("div");
+
     const skills = document.createElement("div");
     skills.innerText = "Persönliche Skills";
     skills.classList.add("skills");
     bottomContainer.appendChild(skills);
+
     const list = document.createElement("ul");
     list.classList.add("list");
-    const list1 = document.createElement("li");
-    list1.innerText = "Empathie";
-    list1.classList.add("list");
-    list.appendChild(list1);
-    const list2 = document.createElement("li");
-    list2.innerText = "Teamfähigkeit";
-    list2.classList.add("list");
-    list.appendChild(list2);
-    const list3 = document.createElement("li");
-    list3.innerText = "Geduld";
-    list3.classList.add("list");
-    list.appendChild(list3);
-    const list4 = document.createElement("li");
-    list4.innerText = "Kommunikation";
-    list4.classList.add("list");
-    list.appendChild(list4);
     bottomContainer.appendChild(list);
+
+    const skillText = ["Empathie", "Teamfähigkeit", "Geduld", "Kommunikation"];
+
+    for (let skills of skillText) {
+        const skillsElement = document.createElement("li");
+        skillsElement.innerText = skills;
+        skillsElement.classList.add("list");
+        list.appendChild(skillsElement);
+    }
     return bottomContainer;
 }
 
@@ -126,33 +118,40 @@ const data: Props[] = [
         experience: "Ausbildung",
         jobtitle: "Abschluss der allgemeinen Hochschulreife",
         year: "2014",
-        text1: "Kernfächer im Abitur: Englisch und Geschichte",
-        text2: "",
-        text3: "Weitere Fächer in der Abiturprüfung: Deutsch und Mathematik(4.Fach)",
+        text: [
+            "Kernfächer im Abitur: Englisch und Geschichte",
+            "Weitere Fächer in der Abiturprüfung: Deutsch und Mathematik(4.Fach)",
+        ],
     },
     {
         experience: "Bisherige Berufserfahrung",
         jobtitle: "Pinos Eiscafe&Ristorante",
         year: "2014-2015",
-        text1: "Erste Erfahrungen im Gastronomiebereich",
-        text2: "Arbeit hinter der Theke und direkte Bedienung der Kundschaft",
-        text3: "Erlernung der Kommunikation im direkten Kundenkontakt",
+        text: [
+            "Erste Erfahrungen im Gastronomiebereich",
+            "Arbeit hinter der Theke und direkte Bedienung der Kundschaft",
+            "Erlernung der Kommunikation im direkten Kundenkontakt",
+        ],
     },
     {
         experience: "Weitere Berufserfahrung",
         jobtitle: "Arbeit als Inklusionshelfer",
         year: "2015-2024",
-        text1: "Begleitung von Kindern von 4-12 Jahren in ihrem Schul- und Kitaalltag",
-        text2: "Aneignung breitgefächerten Fachwissens & Erfahrung im pädagogischen Bereich",
-        text3: "Spezialisierung auf Begleitung von Kindern mit Autismus, ADHS und ES",
+        text: [
+            "Begleitung von Kindern von 4-12 Jahren in ihrem Schul- und Kitaalltag",
+            "Aneignung breitgefächerten Fachwissens & Erfahrung im pädagogischen Bereich",
+            "Spezialisierung auf Begleitung von Kindern mit Autismus, ADHS und ES",
+        ],
     },
     {
         experience: "Weitere Berufserfahrung",
         jobtitle: "Junior Software Developer bei Progani GmbH",
         year: "04.2024-heute",
-        text1: "Erlernung neuer Programmiersprachen und -techniken, zB. HTML und Typescript",
-        text2: "Durchführung individuell erstellter Aufgaben durch den Vorgesetzten als Lernprozess",
-        text3: "Verköstigung eines kulinarisch erquickenden Mettbrötchens an einem jeden Mettwoch",
+        text: [
+            "Erlernung neuer Programmiersprachen und -techniken, zB. HTML und Typescript",
+            "Durchführung individuell erstellter Aufgaben durch den Vorgesetzten als Lernprozess",
+            "Verköstigung eines kulinarisch erquickenden Mettbrötchens an einem jeden Mettwoch",
+        ],
     },
 ];
 
