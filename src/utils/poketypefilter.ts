@@ -1,9 +1,9 @@
 export type Pokemon = {
     name: string;
-    types: type[];
+    types: Type[];
     // dexnumber: string;
 };
-export type type =
+export type Type =
     | "water"
     | "fire"
     | "grass"
@@ -20,7 +20,7 @@ export type type =
     | "rock"
     | "electric";
 
-export function getPokemonByType(type: type) {
+export function getPokemonByType(type: Type) {
     let pokemonList: Pokemon[] = [];
     for (let pokemon of pokedex) {
         for (let pokeType of pokemon.types) {
@@ -31,7 +31,7 @@ export function getPokemonByType(type: type) {
     }
     return pokemonList;
 }
-const pokedex: Pokemon[] = [
+export const pokedex: Pokemon[] = [
     {
         name: "Bulbasaur",
         types: ["grass", "poison"],
