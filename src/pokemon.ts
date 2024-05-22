@@ -4,7 +4,47 @@ import type { Type } from "./utils/poketypefilter";
 
 import { pokedex } from "./utils/poketypefilter";
 
-const pokemonCard = document.body;
+import { Button } from "./utils/poketypefilter";
+
+import { GetPokemonByType } from "./utils/poketypefilter";
+
+const element = document.body;
+
+const header = document.createElement("div");
+header.innerText = "Show Pokemon with the following type:";
+header.classList.add("header");
+element.appendChild(header);
+
+const buttonWrapper = document.createElement("div");
+element.appendChild(buttonWrapper);
+
+const button: Button = document.createElement("button");
+button.label = "water";
+button.classList.add("button");
+button.onClick = GetPokemonByType("water");
+buttonWrapper.appendChild(button);
+
+const buttonTypes = [
+    "water",
+    "fire",
+    "grass",
+    "normal",
+    "flying",
+    "poison",
+    "ghost",
+    "psychic",
+    "ground",
+    "dragon",
+    "ice",
+    "bug",
+    "fighting",
+    "rock",
+    "electric",
+];
+
+const pokemonListWrapper = document.createElement("div");
+element.appendChild(pokemonListWrapper);
+pokemonListWrapper.id = "pokemon-list-wrapper";
 
 function PokemonCard(pokemon: Pokemon) {
     const completeCard = document.createElement("div");
@@ -14,6 +54,7 @@ function PokemonCard(pokemon: Pokemon) {
     pokeName.innerText = pokemon.name;
     pokeName.classList.add("poke-name");
     completeCard.appendChild(pokeName);
+
     for (let type of pokemon.types) {
         const pokeType = document.createElement("p");
         pokeType.innerText = type;
@@ -27,5 +68,7 @@ function PokemonCard(pokemon: Pokemon) {
     return completeCard;
 }
 
-const completeCard = PokemonCard(pokedex[0]);
-pokemonCard.appendChild(completeCard);
+for (let loop of pokedex) {
+    const completeCard = PokemonCard(loop);
+    pokemonListWrapper.appendChild(completeCard);
+}

@@ -66,3 +66,20 @@
 .electric {
     background-color: rgb(240, 240, 0);
 }
+
+.button {
+    color: white;
+    font-size: 30px;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.header {
+    font-size: 30px;
+    padding: 20px;
+    font-family: "Times New Roman";
+    font-weight: bold;
+}
