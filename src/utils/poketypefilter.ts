@@ -4,11 +4,6 @@ export type Pokemon = {
     // dexnumber: string;
 };
 
-export type Button = {
-    label: string;
-    onClick: () => void;
-};
-
 export type Type =
     | "water"
     | "fire"
@@ -26,7 +21,25 @@ export type Type =
     | "rock"
     | "electric";
 
-export function GetPokemonByType(type: Type) {
+export const buttonTypes: Type[] = [
+    "water",
+    "fire",
+    "grass",
+    "normal",
+    "flying",
+    "poison",
+    "ghost",
+    "psychic",
+    "ground",
+    "dragon",
+    "ice",
+    "bug",
+    "fighting",
+    "rock",
+    "electric",
+];
+
+export function getPokemonByType(type: Type) {
     let pokemonList: Pokemon[] = [];
     for (let pokemon of pokedex) {
         for (let pokeType of pokemon.types) {

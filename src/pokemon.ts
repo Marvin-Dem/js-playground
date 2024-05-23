@@ -4,9 +4,9 @@ import type { Type } from "./utils/poketypefilter";
 
 import { pokedex } from "./utils/poketypefilter";
 
-import { Button } from "./utils/poketypefilter";
+import { getPokemonByType } from "./utils/poketypefilter";
 
-import { GetPokemonByType } from "./utils/poketypefilter";
+import { buttonTypes } from "./utils/poketypefilter";
 
 const element = document.body;
 
@@ -16,31 +16,37 @@ header.classList.add("header");
 element.appendChild(header);
 
 const buttonWrapper = document.createElement("div");
+buttonWrapper.classList.add("button-wrapper");
 element.appendChild(buttonWrapper);
 
-const button: Button = document.createElement("button");
-button.label = "water";
-button.classList.add("button");
-button.onClick = GetPokemonByType("water");
-buttonWrapper.appendChild(button);
+type Button = {
+    buttonType: Type;
+    // onClick: () => void;
+};
 
-const buttonTypes = [
-    "water",
-    "fire",
-    "grass",
-    "normal",
-    "flying",
-    "poison",
-    "ghost",
-    "psychic",
-    "ground",
-    "dragon",
-    "ice",
-    "bug",
-    "fighting",
-    "rock",
-    "electric",
-];
+function TypeFilterButton(props: Button) {
+    const button = document.createElement("button");
+    button.innerText = props.buttonType;
+    button.classList.add("button");
+    button.classList.add(props.buttonType);
+    button.onclick = function buttonOnclick() {
+        pokemonListWrapper.innerHTML = "";
+        const array = getPokemonByType(props.buttonType);
+        for (let loop of array) {
+            const completeCard = PokemonCard(loop);
+            pokemonListWrapper.appendChild(completeCard);
+        }
+    };
+    return button;
+}
+
+for (let buttonString of buttonTypes) {
+    buttonWrapper.appendChild(
+        TypeFilterButton({
+            buttonType: buttonString,
+        })
+    );
+}
 
 const pokemonListWrapper = document.createElement("div");
 element.appendChild(pokemonListWrapper);
