@@ -20,36 +20,38 @@ buttonWrapper.classList.add("button-wrapper");
 element.appendChild(buttonWrapper);
 
 function FilterResetButton() {
-    const resetButton = document.createElement("button");
-    resetButton.innerText = "Reset Filter";
-    resetButton.classList.add("button", "reset");
-    resetButton.onclick = function Reset() {
-        pokemonListWrapper.innerHTML = "";
-        for (let loop of pokedex) {
-            const completeCard = PokemonCard(loop);
-            pokemonListWrapper.appendChild(completeCard);
-        }
-    };
+    const resetButton = Button({
+        label: "Reset Filter",
+        onClick: function Reset() {
+            pokemonListWrapper.innerHTML = "";
+            for (let loop of pokedex) {
+                const completeCard = PokemonCard(loop);
+                pokemonListWrapper.appendChild(completeCard);
+            }
+        },
+        className: "reset",
+    });
     return resetButton;
 }
+
 header.appendChild(FilterResetButton());
 
 type TypeFilterButtonProps = {
     buttonType: Type;
-    // onClick: () => void;
 };
 function TypeFilterButton(props: TypeFilterButtonProps) {
-    const button = document.createElement("button");
-    button.innerText = props.buttonType;
-    button.classList.add("button", props.buttonType);
-    button.onclick = function buttonOnclick() {
-        pokemonListWrapper.innerHTML = "";
-        const array = getPokemonByType(props.buttonType);
-        for (let loop of array) {
-            const completeCard = PokemonCard(loop);
-            pokemonListWrapper.appendChild(completeCard);
-        }
-    };
+    const button = Button({
+        label: props.buttonType,
+        onClick: function buttonOnclick() {
+            pokemonListWrapper.innerHTML = "";
+            const array = getPokemonByType(props.buttonType);
+            for (let loop of array) {
+                const completeCard = PokemonCard(loop);
+                pokemonListWrapper.appendChild(completeCard);
+            }
+        },
+        className: props.buttonType,
+    });
     return button;
 }
 
@@ -71,18 +73,12 @@ function Button(props: ButtonProps) {
     const button = document.createElement("button");
     button.innerText = props.label;
     button.classList.add("button");
+    if (props.className !== undefined) {
+        button.classList.add(props.className);
+    }
     button.onclick = props.onClick;
     return button;
 }
-
-// element.appendChild(
-//     Button({
-//         label: "Wer hier klickt,ist doof!",
-//         onClick() {
-//             console.log("Lol, du Idiot hast draufgeklickt!");
-//         },
-//     })
-// );
 
 const pokemonListWrapper = document.createElement("div");
 element.appendChild(pokemonListWrapper);
