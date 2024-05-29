@@ -2,12 +2,16 @@ import type { Pokemon } from "./utils/poketypefilter";
 
 import type { Type } from "./utils/poketypefilter";
 
-import { pokedex } from "./utils/poketypefilter";
+// import { pokedex } from "./utils/poketypefilter";
 
 import { getPokemonByType } from "./utils/poketypefilter";
 
 import { buttonTypes } from "./utils/poketypefilter";
 
+import { getAllPokemon } from "./utils/pokeAPI";
+
+// console.log(await getAllPokemon());
+const pokedex = await getAllPokemon();
 const element = document.body;
 
 const header = document.createElement("div");
