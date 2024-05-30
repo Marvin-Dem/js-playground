@@ -4,7 +4,7 @@ import type { Type } from "./utils/poketypefilter";
 
 // import { pokedex } from "./utils/poketypefilter";
 
-import { getPokemonByType } from "./utils/poketypefilter";
+// import { getPokemonByType } from "./utils/poketypefilter";
 
 import { buttonTypes } from "./utils/poketypefilter";
 
@@ -97,6 +97,11 @@ function PokemonCard(pokemon: Pokemon) {
     pokeName.classList.add("poke-name");
     completeCard.appendChild(pokeName);
 
+    const pokeId = document.createElement("p");
+    pokeId.classList.add("poke-number");
+    pokeId.innerText = pokemon.id;
+    completeCard.appendChild(pokeId);
+
     for (let type of pokemon.types) {
         const pokeType = document.createElement("p");
         pokeType.innerText = type;
@@ -113,4 +118,16 @@ function PokemonCard(pokemon: Pokemon) {
 for (let loop of pokedex) {
     const completeCard = PokemonCard(loop);
     pokemonListWrapper.appendChild(completeCard);
+}
+
+function getPokemonByType(type: Type) {
+    let pokemonList: Pokemon[] = [];
+    for (let pokemon of pokedex) {
+        for (let pokeType of pokemon.types) {
+            if (type === pokeType) {
+                pokemonList.push(pokemon);
+            }
+        }
+    }
+    return pokemonList;
 }

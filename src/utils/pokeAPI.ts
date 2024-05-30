@@ -15,6 +15,7 @@ export async function getAllPokemon() {
         const pokemon: Pokemon = {
             name: pokedata.name,
             types: types,
+            id: `#${pokedata.id}`,
         };
         allPokemon.push(pokemon);
     }
