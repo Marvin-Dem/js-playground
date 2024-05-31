@@ -1,6 +1,7 @@
 export type Pokemon = {
     name: string;
     types: Type[];
+    sprite: string;
     id: string;
     // dexnumber: string;
 };

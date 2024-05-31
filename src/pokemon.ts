@@ -88,6 +88,16 @@ const pokemonListWrapper = document.createElement("div");
 element.appendChild(pokemonListWrapper);
 pokemonListWrapper.id = "pokemon-list-wrapper";
 
+type PokeSpriteProps = {
+    url: string;
+};
+
+function PokeSprite(props: PokeSpriteProps) {
+    const sprite = document.createElement("img");
+    sprite.src = props.url;
+    return sprite;
+}
+
 function PokemonCard(pokemon: Pokemon) {
     const completeCard = document.createElement("div");
     completeCard.classList.add("general");
@@ -101,6 +111,9 @@ function PokemonCard(pokemon: Pokemon) {
     pokeId.classList.add("poke-number");
     pokeId.innerText = pokemon.id;
     completeCard.appendChild(pokeId);
+
+    const pokeSprite = PokeSprite({ url: pokemon.sprite });
+    completeCard.appendChild(pokeSprite);
 
     for (let type of pokemon.types) {
         const pokeType = document.createElement("p");
