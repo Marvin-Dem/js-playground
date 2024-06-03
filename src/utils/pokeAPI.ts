@@ -1,4 +1,4 @@
-import { Pokemon, Type } from "./poketypefilter";
+import type { Pokemon, Type } from "./poketypefilter";
 
 // export async function getAllPokemon1() {
 //     const allPokemon: Pokemon[] = [];
@@ -26,7 +26,7 @@ import { Pokemon, Type } from "./poketypefilter";
 export async function getAllPokemon() {
     const allPokemon: Pokemon[] = [];
     const promises: Promise<any>[] = [];
-    for (let pokeIndex = 1; pokeIndex <= 251; pokeIndex++) {
+    for (let pokeIndex = 1; pokeIndex <= 386; pokeIndex++) {
         const promise = fetch(
             `https://pokeapi.co/api/v2/pokemon/${pokeIndex}`
         ).then((response) => {
@@ -52,12 +52,4 @@ export async function getAllPokemon() {
         allPokemon.push(pokemon);
     }
     return allPokemon;
-}
-
-export function PokeSprite() {
-    const sprite = document.createElement("img");
-    // for (let spriteNumber = 1; spriteNumber <= 251; spriteNumber++) {
-    //     sprite.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${spriteNumber}.png`;
-    // }
-    return sprite;
 }

@@ -10,7 +10,10 @@ import { buttonTypes } from "./utils/poketypefilter";
 
 import { getAllPokemon } from "./utils/pokeAPI";
 
+import "./client-test";
+
 // console.log(await getAllPokemon());
+
 const pokedex = await getAllPokemon();
 const element = document.body;
 

@@ -1,11 +1,38 @@
+// {
+//     "compilerOptions": {
+//       "target": "ESNext",
+//       "module": "NodeNext",
+//       "strict": true,
+//       "outDir": "./dist",
+//       "rootDir": "./src",
+//       "moduleResolution": "NodeNext"
+//     },
+//     "include": ["src/**/*.ts", "client test.ts"],
+//     "exclude": ["node_modules"]
+//   }
+
 {
-    "compilerOptions": {
+  "compilerOptions": {
+      /* Base Options: */
+      "esModuleInterop": true,
+      "skipLibCheck": true,
       "target": "ESNext",
-      "module": "ESNext",
+      "allowJs": true,
+      "resolveJsonModule": true,
+      "moduleDetection": "force",
+      "isolatedModules": true,
+      "verbatimModuleSyntax": true,
+      /* Strictness */
       "strict": true,
-      "outDir": "./dist",
-      "rootDir": "./src"
-    },
-    "include": ["src/**/*.ts"],
-    "exclude": ["node_modules"]
-  }
+      "noUncheckedIndexedAccess": true,
+      "noImplicitOverride": true,
+      /* If transpiling with TypeScript: */
+      "module": "Preserve",
+      "outDir": "dist",
+      "sourceMap": true,
+      /* If your code runs in the DOM: */
+      "lib": ["ESNext", "dom", "dom.iterable"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
