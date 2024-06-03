@@ -1,18 +1,9 @@
-import type { Pokemon } from "./utils/poketypefilter";
-
 import type { Type } from "./utils/poketypefilter";
-
-// import { pokedex } from "./utils/poketypefilter";
-
-// import { getPokemonByType } from "./utils/poketypefilter";
 
 import { buttonTypes } from "./utils/poketypefilter";
 
 import { getAllPokemon } from "./utils/pokeAPI";
-
-import "./client-test";
-
-// console.log(await getAllPokemon());
+import type { Pokemon } from "pokenode-ts";
 
 const pokedex = await getAllPokemon();
 const element = document.body;
@@ -112,19 +103,20 @@ function PokemonCard(pokemon: Pokemon) {
 
     const pokeId = document.createElement("p");
     pokeId.classList.add("poke-number");
-    pokeId.innerText = pokemon.id;
+    pokeId.innerText = pokemon.id.toString();
     completeCard.appendChild(pokeId);
 
-    const pokeSprite = PokeSprite({ url: pokemon.sprite });
-    completeCard.appendChild(pokeSprite);
-
+    if (pokemon.sprites.front_default !== null) {
+        const pokeSprite = PokeSprite({ url: pokemon.sprites.front_default });
+        completeCard.appendChild(pokeSprite);
+    }
     for (let type of pokemon.types) {
         const pokeType = document.createElement("p");
-        pokeType.innerText = type;
+        pokeType.innerText = type.type.name;
         pokeType.classList.add("poke-type");
         completeCard.appendChild(pokeType);
         if (type === pokemon.types[0]) {
-            completeCard.classList.add(type);
+            completeCard.classList.add(type.type.name);
         }
     }
 
@@ -140,7 +132,7 @@ function getPokemonByType(type: Type) {
     let pokemonList: Pokemon[] = [];
     for (let pokemon of pokedex) {
         for (let pokeType of pokemon.types) {
-            if (type === pokeType) {
+            if (type === pokeType.type.name) {
                 pokemonList.push(pokemon);
             }
         }

@@ -1,10 +1,10 @@
-export type Pokemon = {
-    name: string;
-    types: Type[];
-    sprite: string;
-    id: string;
-    // dexnumber: string;
-};
+// export type Pokemon = {
+//     name: string;
+//     types: Type[];
+//     sprite: string | null;
+//     id: string;
+//     // dexnumber: string;
+// };
 
 export type Type =
     | "water"
