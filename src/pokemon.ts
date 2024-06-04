@@ -34,6 +34,27 @@ function FilterResetButton() {
 
 header.appendChild(FilterResetButton());
 
+type AudioButtonProps = {
+    url: string;
+};
+
+function AudioButton(props: AudioButtonProps) {
+    const playImage = document.createElement("img");
+    playImage.src = "https://cdn-icons-png.flaticon.com/512/4028/4028535.png";
+    playImage.classList.add("audio-button");
+    const customAudioButton = document.createElement("button");
+    customAudioButton.classList.add("audio-button");
+    customAudioButton.appendChild(playImage);
+    const audio = document.createElement("audio");
+    audio.src = props.url;
+    audio.volume = 0.1;
+    customAudioButton.onclick = () => {
+        audio.play();
+    };
+    customAudioButton.appendChild(audio);
+    return customAudioButton;
+}
+
 type TypeFilterButtonProps = {
     buttonType: Type;
 };
@@ -48,7 +69,7 @@ function TypeFilterButton(props: TypeFilterButtonProps) {
                 pokemonListWrapper.appendChild(completeCard);
             }
         },
-        className: props.buttonType,
+        className: `${props.buttonType} filter-button`,
     });
     return button;
 }
@@ -72,7 +93,7 @@ function Button(props: ButtonProps) {
     button.innerText = props.label;
     button.classList.add("button");
     if (props.className !== undefined) {
-        button.classList.add(props.className);
+        button.classList.add(...props.className.split(" "));
     }
     button.onclick = props.onClick;
     return button;
@@ -105,6 +126,9 @@ function PokemonCard(pokemon: Pokemon) {
     pokeId.classList.add("poke-number");
     pokeId.innerText = pokemon.id.toString();
     completeCard.appendChild(pokeId);
+
+    const pokeAudio = AudioButton({ url: pokemon.cries.latest });
+    completeCard.appendChild(pokeAudio);
 
     if (pokemon.sprites.front_default !== null) {
         const pokeSprite = PokeSprite({ url: pokemon.sprites.front_default });
