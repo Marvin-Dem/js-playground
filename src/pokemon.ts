@@ -3,6 +3,7 @@ import type { Type } from "./utils/poketypefilter";
 import { buttonTypes } from "./utils/poketypefilter";
 
 import { getAllPokemon } from "./utils/pokeAPI";
+
 import type { Pokemon } from "pokenode-ts";
 
 const pokedex = await getAllPokemon();
@@ -23,7 +24,7 @@ function FilterResetButton() {
         onClick: function Reset() {
             pokemonListWrapper.innerHTML = "";
             for (let loop of pokedex) {
-                const completeCard = PokemonCard(loop);
+                const completeCard = PokemonCard({ pokemon: loop });
                 pokemonListWrapper.appendChild(completeCard);
             }
         },
@@ -38,7 +39,7 @@ type AudioButtonProps = {
     url: string;
 };
 
-function AudioButton(props: AudioButtonProps) {
+function AudioButton({ url }: AudioButtonProps) {
     const playImage = document.createElement("img");
     playImage.src = "https://cdn-icons-png.flaticon.com/512/4028/4028535.png";
     playImage.classList.add("audio-button");
@@ -46,7 +47,7 @@ function AudioButton(props: AudioButtonProps) {
     customAudioButton.classList.add("audio-button");
     customAudioButton.appendChild(playImage);
     const audio = document.createElement("audio");
-    audio.src = props.url;
+    audio.src = url;
     audio.volume = 0.1;
     customAudioButton.onclick = () => {
         audio.play();
@@ -58,18 +59,18 @@ function AudioButton(props: AudioButtonProps) {
 type TypeFilterButtonProps = {
     buttonType: Type;
 };
-function TypeFilterButton(props: TypeFilterButtonProps) {
+function TypeFilterButton({ buttonType }: TypeFilterButtonProps) {
     const button = Button({
-        label: props.buttonType,
+        label: buttonType,
         onClick: function buttonOnclick() {
             pokemonListWrapper.innerHTML = "";
-            const array = getPokemonByType(props.buttonType);
+            const array = getPokemonByType(buttonType);
             for (let loop of array) {
-                const completeCard = PokemonCard(loop);
+                const completeCard = PokemonCard({ pokemon: loop });
                 pokemonListWrapper.appendChild(completeCard);
             }
         },
-        className: `${props.buttonType} filter-button`,
+        className: `${buttonType} filter-button`,
     });
     return button;
 }
@@ -88,14 +89,14 @@ type ButtonProps = {
     className?: string;
 };
 
-function Button(props: ButtonProps) {
+function Button({ label, onClick, className }: ButtonProps) {
     const button = document.createElement("button");
-    button.innerText = props.label;
+    button.innerText = label;
     button.classList.add("button");
-    if (props.className !== undefined) {
-        button.classList.add(...props.className.split(" "));
+    if (className !== undefined) {
+        button.classList.add(...className.split(" "));
     }
-    button.onclick = props.onClick;
+    button.onclick = onClick;
     return button;
 }
 
@@ -107,13 +108,17 @@ type PokeSpriteProps = {
     url: string;
 };
 
-function PokeSprite(props: PokeSpriteProps) {
+function PokeSprite({ url }: PokeSpriteProps) {
     const sprite = document.createElement("img");
-    sprite.src = props.url;
+    sprite.src = url;
     return sprite;
 }
 
-function PokemonCard(pokemon: Pokemon) {
+type PokemonCardProps = {
+    pokemon: Pokemon;
+};
+
+function PokemonCard({ pokemon }: PokemonCardProps) {
     const completeCard = document.createElement("div");
     completeCard.classList.add("general");
 
@@ -148,7 +153,7 @@ function PokemonCard(pokemon: Pokemon) {
 }
 
 for (let loop of pokedex) {
-    const completeCard = PokemonCard(loop);
+    const completeCard = PokemonCard({ pokemon: loop });
     pokemonListWrapper.appendChild(completeCard);
 }
 
