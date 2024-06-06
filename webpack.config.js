@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-    entry: "./src/pokemon.ts",
+    entry: "./src/react.tsx",
     devtool: "source-map",
     module: {
         rules: [
@@ -16,7 +16,7 @@ module.exports = {
         extensions: [".tsx", ".ts", ".js"],
     },
     output: {
-        filename: "pokemon.js",
+        filename: "main.js",
         path: path.resolve(__dirname, "dist"),
     },
 };
