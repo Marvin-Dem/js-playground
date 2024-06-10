@@ -14,7 +14,7 @@
 {
   "compilerOptions": {
       /* Base Options: */
-      "jsx": "preserve",
+      "jsx": "react-jsx",
       "esModuleInterop": true,
       "skipLibCheck": true,
       "target": "ESNext",
