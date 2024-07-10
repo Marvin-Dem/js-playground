@@ -27,6 +27,7 @@ a {
     text-decoration: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.5s ease;
+    width: 40%;
 }
 
 a:hover {
@@ -49,4 +50,10 @@ a:hover {
     60% {
         transform: translateY(-5px);
     }
+}
+
+.linkwrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
