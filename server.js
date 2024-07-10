@@ -15,6 +15,6 @@ app.use(connectLiveReload());
 app.use(express.static("public"));
 app.use("/dist", express.static("dist", { extensions: ["js"] }));
 
-app.listen(3000, function () {
+app.listen(3001, function () {
     console.log("App is listening on port 3000!");
 });
